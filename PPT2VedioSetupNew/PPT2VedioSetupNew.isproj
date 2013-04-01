@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <!-- Select a Product Configuration -->
+    <InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+    <!-- Select a Visual Studio Configuration / InstallShield Release -->
+    <Configuration>Debug</Configuration>
+    <InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- The InstallShieldProject item selects the project to build -->
+    <InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl" />
+    <!-- The InstallShieldReleaseFlags sets Release Flags -->
+    <!--<InstallShieldReleaseFlags Include=""/>-->
+    <!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+    <!--<InstallShieldMergeModulePath Include=""/>-->
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+    <!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\InstallShield\2012SpringLimited\InstallShield.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\PPT2Image\PPT2Image.csproj">
+      <Name>PPT2Image</Name>
+      <Project>{B9528BC4-A2C5-4F29-BBB2-CF3C573E98AD}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\PPT2Vedio\PPT2Vedio.csproj">
+      <Name>PPT2Vedio</Name>
+      <Project>{58249089-A191-45E7-8569-318F05468BE3}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
